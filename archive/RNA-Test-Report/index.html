@@ -102,13 +102,13 @@
     </div>
     <div class="info" id="first-frame">
         <br />
-        <img src="assets/rna-test-report/okey.png" width="60px" id="m-icon" />
+        <img src="assets/okey.png" width="60px" id="m-icon" />
         <h1 class="green" id="morph">阴性</h1>
         <h4 class="green" id="morph2">距离本次检测已过0天</h4>
         <table>
             <tr>
                 <td class="item-name"></td>
-                <td class="item-value">我的基本信息&nbsp;<img src="assets/rna-test-report/eye.png" height="14px" />&nbsp;</td>
+                <td class="item-value">我的基本信息&nbsp;<img src="assets/eye.png" height="14px" />&nbsp;</td>
             </tr>
             <tr>
                 <td class="item-name entity">姓名</td>
@@ -173,13 +173,13 @@
             mtext = document.getElementById('morph'),
             mtext2 = document.getElementById('morph2');
         if (!morph) {
-            mlogo.setAttribute('src', 'assets/rna-test-report/oops.png');
+            mlogo.setAttribute('src', 'assets/oops.png');
             mtext.innerText = "阳性";
             mtext.setAttribute('class', 'red');
             mtext2.setAttribute('class', 'red');
             morph = true;
         } else {
-            mlogo.setAttribute('src', 'assets/rna-test-report/okey.png');
+            mlogo.setAttribute('src', 'assets/okey.png');
             mtext.innerText = "阴性";
             mtext.setAttribute('class', 'green');
             mtext2.setAttribute('class', 'green');
