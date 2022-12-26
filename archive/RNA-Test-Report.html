@@ -1,0 +1,191 @@
+<!-- Powered by Penyo. -->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>核酸检测报告</title>
+    <style>
+        * {
+            font-family: 思源黑体;
+        }
+
+        body {
+            background-color: #f0f4f7;
+        }
+
+        h1 {
+            font-size: 52px;
+            font-weight: normal;
+            text-align: center;
+            line-height: 0px;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: normal;
+            text-align: center;
+            line-height: 0px;
+        }
+
+        h4 {
+            font-weight: normal;
+            text-align: center;
+            line-height: 64px;
+        }
+
+        #first-frame {
+            margin-top: 58px;
+        }
+
+        .info {
+            background-color: #ffffff;
+            width: 380px;
+            padding: 8px;
+            border-radius: 10px;
+            margin: auto;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .entity {
+            color: #333333;
+            border-bottom: 1px solid #eeeeee;
+            padding: 8px;
+        }
+
+        .top-bar {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            background-color: #0157d0;
+            padding: 4px 0px 10px;
+        }
+
+        .green {
+            color: #5cb83c;
+        }
+
+        .red {
+            color: #e74b13;
+        }
+
+        .item-name {
+            color: #989898;
+            line-height: 38px;
+        }
+
+        .item-value {
+            text-align: right;
+        }
+
+        .notice {
+            color: #1b8bb9;
+            background-color: #d1e9f5;
+            line-height: 24px;
+            padding: 16px 8px;
+            border-radius: 5px;
+            margin: 28px 0px 20px;
+        }
+
+        .cr {
+            color: #989898;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <h2 onclick="counter()">核酸检测报告</h2>
+    </div>
+    <div class="info" id="first-frame">
+        <br />
+        <img src="assets/rna-test-report/okey.png" width="60px" id="m-icon" />
+        <h1 class="green" id="morph">阴性</h1>
+        <h4 class="green" id="morph2">距离本次检测已过0天</h4>
+        <table>
+            <tr>
+                <td class="item-name"></td>
+                <td class="item-value">我的基本信息&nbsp;<img src="assets/rna-test-report/eye.png" height="14px" />&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="item-name entity">姓名</td>
+                <td class="item-value entity">**娅</td>
+            </tr>
+            <tr>
+                <td class="item-name entity">身份证号</td>
+                <td class="item-value entity">1000**********0001</td>
+            </tr>
+            <tr>
+                <td class="item-name entity">采集机构</td>
+                <td class="item-value entity">泰拉罗德岛</td>
+            </tr>
+            <tr>
+                <td class="item-name entity">采集时间</td>
+                <td class="item-value entity"><label id="a-time" onclick="redo()">2022-12-05</label> 13:16:52</td>
+            </tr>
+            <tr>
+                <td class="item-name entity">检测机构</td>
+                <td class="item-value entity">泰拉罗德岛</td>
+            </tr>
+            <tr>
+                <td class="item-name entity">检测时间</td>
+                <td class="item-value entity"><label id="b-time" onclick="redo()">2022-12-05</label> 20:22:05</td>
+            </tr>
+            <tr>
+                <td class="item-name" colspan="3">
+                    <div class="notice">
+                        注：仅显示近14天内核酸检测记录。更多数据在不<br />断汇集和完善中，查询结果供参考。
+                    </div>
+                </td>
+        </table>
+    </div>
+    <div class="info cr">
+        <p onclick="alert('Powered by Penyo. All rights reserved.')">
+            <small>本页面仅供研究计算机原理，<b>禁止</b>用于干扰防疫政策。<br />
+                作者不对使用者的行为负任何责任！</small>
+        </p>
+    </div>
+</body>
+
+<script>
+    function redo() {
+        var obj = document.getElementById('a-time');
+        var dateObj = new Date(obj.innerText);
+        dateObj.setDate(dateObj.getDate() + 1);
+        obj.innerText = dateObj.getFullYear() + '-' +
+            ((dateObj.getMonth() + 1) < 10 ? ('0' + (dateObj.getMonth() + 1)) : (dateObj.getMonth() + 1)) + '-' +
+            ((dateObj.getDate()) < 10 ? ('0' + dateObj.getDate()) : dateObj.getDate());
+        document.getElementById('b-time').innerText = obj.innerText;
+    }
+
+    var i = 0;
+    function counter() {
+        if (!(++i % 3))
+            changeMorph();
+    }
+
+    var morph = false;
+    function changeMorph() {
+        var mlogo = document.getElementById('m-icon'),
+            mtext = document.getElementById('morph'),
+            mtext2 = document.getElementById('morph2');
+        if (!morph) {
+            mlogo.setAttribute('src', 'assets/rna-test-report/oops.png');
+            mtext.innerText = "阳性";
+            mtext.setAttribute('class', 'red');
+            mtext2.setAttribute('class', 'red');
+            morph = true;
+        } else {
+            mlogo.setAttribute('src', 'assets/rna-test-report/okey.png');
+            mtext.innerText = "阴性";
+            mtext.setAttribute('class', 'green');
+            mtext2.setAttribute('class', 'green');
+            morph = false;
+        }
+    }
+</script>
+
+</html>
