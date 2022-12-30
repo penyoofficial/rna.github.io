@@ -1,113 +1,144 @@
-<!-- Powered by Penyo. -->
 <!DOCTYPE html>
 <html lang="zh">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>舟味选单</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-image: url(assets/background.87f99497.png);
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-
-        .level {
-            width: 195px;
-            height: 65px;
-            text-align: right;
-            margin: 50px auto;
-        }
-
-        .level:hover {
-            filter: brightness(90%);
-        }
-
-        .level:active {
-            filter: brightness(80%);
-        }
-
-        .star {
-            width: 45px;
-            height: 45px;
-            background-color: #00b3fd;
-            border-radius: 24px;
-            box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, .4);
-            box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, .4) inset;
-            border: 3px solid white
-        }
-
-        .op-sign {
-            width: 195px;
-            height: 15px;
-            background-color: black;
-            text-align: center;
-            color: white;
-            font-size: 12px;
-            line-height: 15px;
-        }
-
-        .op-code {
-            width: 195px;
-            height: 50px;
-            background-image: linear-gradient(to top right,
-                    #bbbbbb, white, white);
-            box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, .4);
-            text-align: center;
-            color: #333333;
-            font-size: 40px;
-            line-height: 50px;
-        }
-
-        .tr {
-            background-image: none;
-            background-color: #313131;
-            color: white;
-        }
-
-        .hard {
-            width: 191px;
-            height: 48px;
-            border: 2px solid #c0754e;
-            border-top: none;
-            background-image: linear-gradient(to top,
-                    #672805, #341906);
-            color: white;
-        }
-    </style>
+    <title>电车站显示板</title>
+    <link rel="stylesheet" href="master.css">
 </head>
 
 <body>
-    <audio id="bg" loop src="assets/m_sys_void_combine.mp3"></audio>
-    <audio id="gamestart" src="assets/g_ui_gamestart.wav"></audio>
-    <div class="level" onclick="sfxFeedback()">
-        <div class="op-sign">OPREATION</div>
-        <div class="op-code">PY-1</div>
-    </div>
-    <div class="level" onclick="sfxFeedback()">
-        <div class="op-sign">TUTORIAL</div>
-        <div class="op-code tr">PY-TR-1</div>
-    </div>
-    <div class="level" onclick="sfxFeedback()">
-        <div class="op-sign">OPREATION</div>
-        <div class="op-code hard">PY-8</div>
+    <div class="frame">
+        <div class="se-sign">
+            <div class="se-icon"></div>
+            <div class="se-info">
+                <div class="se-title">南海线</div>
+                <div class="se-subtitle sek-i">NANKAI LINE</div>
+            </div>
+            <div class="se-icon"></div>
+            <div class="se-info">
+                <div class="se-title">空港线</div>
+                <div class="se-subtitle sek-ii">AIRPORT LINE</div>
+            </div>
+        </div>
+        <div class="info-list">
+            <div class="event">
+                <div class="time">14:</div>
+                <div class="time">1</div>
+                <div class="time">7</div>
+                <div class="date">7</div>
+                <div class="info">
+                    <div class="attribute hurry-i">&nbsp;</div>
+                    <div class="big-text">区急</div>
+                    <div class="big-text">樽<label class="bug-text">？？</label>井</div>
+                </div>
+                <div class="info">
+                    <div class="attribute hurry-i">&nbsp;</div>
+                    <div class="goal">
+                        <div class="small-text">Sub Express</div>
+                        <div class="small-text">for TARUI</div>
+                    </div>
+                </div>
+                <div class="stream invalid">已停止检票！</div>
+            </div>
+            <div class="event">
+                <div class="time">14:</div>
+                <div class="time">1</div>
+                <div class="time">7</div>
+                <div class="date">7</div>
+                <div class="info">
+                    <div class="attribute normal">&nbsp;</div>
+                    <div class="big-text">普通</div>
+                    <div class="big-text">关西空港</div>
+                </div>
+                <div class="info">
+                    <div class="attribute normal">&nbsp;</div>
+                    <div class="goal">
+                        <div class="small-text">Loacl</div>
+                        <div class="small-text">for KANSAI-AIRPORT</div>
+                    </div>
+                </div>
+                <div class="stream invalid">已停止检票！</div>
+            </div>
+            <div class="event">
+                <div class="time">14:</div>
+                <div class="time">2</div>
+                <div class="time">5</div>
+                <div class="date">5</div>
+                <div class="info">
+                    <div class="attribute hurry-i">&nbsp;</div>
+                    <div class="big-text">区急</div>
+                    <div class="big-text">和歌山市</div>
+                </div>
+                <div class="info">
+                    <div class="attribute hurry-i">&nbsp;</div>
+                    <div class="goal">
+                        <div class="small-text">Sub Express</div>
+                        <div class="small-text">for WAKAYAMASHI</div>
+                    </div>
+                </div>
+                <div class="stream valid">正在检票...</div>
+            </div>
+            <div class="event">
+                <div class="time">14:</div>
+                <div class="time">3</div>
+                <div class="time">0</div>
+                <div class="date">9</div>
+                <div class="info">
+                    <div class="attribute hurry-iii">&nbsp;</div>
+                    <div class="big-text">特急</div>
+                    <div class="big-text">关西空港</div>
+                </div>
+                <div class="info">
+                    <div class="attribute hurry-iii">&nbsp;</div>
+                    <div class="goal">
+                        <div class="small-text">Ltd.Exp.rapi:t-β</div>
+                        <div class="small-text">for KANSAI-AIRPORT</div>
+                    </div>
+                </div>
+                <div class="stream valid">&nbsp;</div>
+            </div>
+            <div class="event">
+                <div class="time">14:</div>
+                <div class="time">3</div>
+                <div class="time">3</div>
+                <div class="date">7</div>
+                <div class="info">
+                    <div class="attribute normal">&nbsp;</div>
+                    <div class="big-text">普通</div>
+                    <div class="big-text">和歌山市</div>
+                </div>
+                <div class="info">
+                    <div class="attribute normal">&nbsp;</div>
+                    <div class="goal">
+                        <div class="small-text">Loacl</div>
+                        <div class="small-text">for WAKAYAMASHI</div>
+                    </div>
+                </div>
+                <div class="stream valid">&nbsp;</div>
+            </div>
+            <div class="event">
+                <div class="time">14:</div>
+                <div class="time">4</div>
+                <div class="time">0</div>
+                <div class="date">5</div>
+                <div class="info">
+                    <div class="attribute hurry-ii">&nbsp;</div>
+                    <div class="big-text">急行</div>
+                    <div class="big-text">关西空港</div>
+                </div>
+                <div class="info">
+                    <div class="attribute hurry-ii">&nbsp;</div>
+                    <div class="goal">
+                        <div class="small-text">Airport Express</div>
+                        <div class="small-text">for KANSAI-AIRPORT</div>
+                    </div>
+                </div>
+                <div class="stream valid">&nbsp;</div>
+            </div>
+        </div>
     </div>
 </body>
-
-<script>
-    var bgStart = false;
-    function sfxFeedback() {
-        if (!bgStart)
-            bg.play();
-        bgStart = true;
-        gamestart.play();
-    }
-</script>
 
 </html>

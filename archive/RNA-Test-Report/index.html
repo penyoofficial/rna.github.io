@@ -1,99 +1,12 @@
-<!-- Powered by Penyo. -->
 <!DOCTYPE html>
 <html lang="zh">
 
 <head>
     <meta charset="UTF-8">
     <title>核酸检测报告</title>
-    <style>
-        * {
-            font-family: 思源黑体;
-        }
-
-        body {
-            background-color: #f0f4f7;
-        }
-
-        h1 {
-            font-size: 52px;
-            font-weight: normal;
-            text-align: center;
-            line-height: 0px;
-        }
-
-        h2 {
-            color: #ffffff;
-            font-size: 20px;
-            font-weight: normal;
-            text-align: center;
-            line-height: 0px;
-        }
-
-        h4 {
-            font-weight: normal;
-            text-align: center;
-            line-height: 64px;
-        }
-
-        #first-frame {
-            margin-top: 58px;
-        }
-
-        .info {
-            background-color: #ffffff;
-            width: 380px;
-            padding: 8px;
-            border-radius: 10px;
-            margin: auto;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        .entity {
-            color: #333333;
-            border-bottom: 1px solid #eeeeee;
-            padding: 8px;
-        }
-
-        .top-bar {
-            position: fixed;
-            left: 0px;
-            top: 0px;
-            width: 100%;
-            background-color: #0157d0;
-            padding: 4px 0px 10px;
-        }
-
-        .green {
-            color: #5cb83c;
-        }
-
-        .red {
-            color: #e74b13;
-        }
-
-        .item-name {
-            color: #989898;
-            line-height: 38px;
-        }
-
-        .item-value {
-            text-align: right;
-        }
-
-        .notice {
-            color: #1b8bb9;
-            background-color: #d1e9f5;
-            line-height: 24px;
-            padding: 16px 8px;
-            border-radius: 5px;
-            margin: 28px 0px 20px;
-        }
-
-        .cr {
-            color: #989898;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="master.css">
+    <script src="global.js"></script>
 </head>
 
 <body>
@@ -102,13 +15,13 @@
     </div>
     <div class="info" id="first-frame">
         <br />
-        <img src="assets/okey.png" width="60px" id="m-icon" />
+        <img src="https://i.328888.xyz/2022/12/30/nNrXb.png" width="60px" id="m-icon" />
         <h1 class="green" id="morph">阴性</h1>
         <h4 class="green" id="morph2">距离本次检测已过0天</h4>
         <table>
             <tr>
                 <td class="item-name"></td>
-                <td class="item-value">我的基本信息&nbsp;<img src="assets/eye.png" height="14px" />&nbsp;</td>
+                <td class="item-value">我的基本信息&nbsp;<img src="https://i.328888.xyz/2022/12/30/nNN0d.png" height="14px" />&nbsp;</td>
             </tr>
             <tr>
                 <td class="item-name entity">姓名</td>
@@ -149,43 +62,5 @@
         </p>
     </div>
 </body>
-
-<script>
-    function redo() {
-        var obj = document.getElementById('a-time');
-        var dateObj = new Date(obj.innerText);
-        dateObj.setDate(dateObj.getDate() + 1);
-        obj.innerText = dateObj.getFullYear() + '-' +
-            ((dateObj.getMonth() + 1) < 10 ? ('0' + (dateObj.getMonth() + 1)) : (dateObj.getMonth() + 1)) + '-' +
-            ((dateObj.getDate()) < 10 ? ('0' + dateObj.getDate()) : dateObj.getDate());
-        document.getElementById('b-time').innerText = obj.innerText;
-    }
-
-    var i = 0;
-    function counter() {
-        if (!(++i % 3))
-            changeMorph();
-    }
-
-    var morph = false;
-    function changeMorph() {
-        var mlogo = document.getElementById('m-icon'),
-            mtext = document.getElementById('morph'),
-            mtext2 = document.getElementById('morph2');
-        if (!morph) {
-            mlogo.setAttribute('src', 'assets/oops.png');
-            mtext.innerText = "阳性";
-            mtext.setAttribute('class', 'red');
-            mtext2.setAttribute('class', 'red');
-            morph = true;
-        } else {
-            mlogo.setAttribute('src', 'assets/okey.png');
-            mtext.innerText = "阴性";
-            mtext.setAttribute('class', 'green');
-            mtext2.setAttribute('class', 'green');
-            morph = false;
-        }
-    }
-</script>
 
 </html>
