@@ -14,7 +14,7 @@ function switchGda() {
             gda == 100 ? 1000 :
                 gda == 1000 ? 10000 :
                     gda == 10000 ? 114514 : 1;
-    document.getElementsByClassName('magnification')[0].innerText = '功德倍率 x' + gda;
+    document.getElementsByClassName('magnification')[0].innerText = '倍率 x' + gda;
 }
 
 window.onload = function () {
