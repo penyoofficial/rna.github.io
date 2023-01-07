@@ -1,4 +1,15 @@
-aElementsSupply();
+initial();
+function initial() {
+    var obj = $.parseJSON($.ajax({
+        url: "hostdata.json",
+        dataType: "json",
+        async: false
+    }).responseText);
+    document.getElementById('')
+    aElementsSupply();
+    autoCalcCost();
+}
+
 function aElementsSupply() {
     Array.from(document.getElementsByClassName('op')).forEach(op => {
         if (op.getAttribute('class') != 'op op-plus') {
@@ -9,7 +20,6 @@ function aElementsSupply() {
     });
 }
 
-autoCalcCost();
 function autoCalcCost() {
     let num = [0, 0, 0, 0, 0, 0, 0, 0], floater = 0;
     Array.from(document.getElementsByClassName('cr')).forEach(cr => {
@@ -71,6 +81,7 @@ function addOP(id) {
     autoCalcCost();
     document.getElementById('op-star').value =
         document.getElementById('op-name').value = null;
+    saveAsJson();
 }
 
 function delOP() {
@@ -79,4 +90,24 @@ function delOP() {
         document.getElementById(name).remove();
     document.getElementById('op-star').value =
         document.getElementById('op-name').value = null;
+    saveAsJson();
+}
+
+function saveAsJson() {
+    let oriJson = '{';
+    Array.from(document.getElementsByClassName('cr')).forEach(cr => {
+        oriJson += ('"' + cr.firstElementChild.getAttribute('id') + '":[');
+        let isMoreThanZero = false;
+        Array.from(cr.getElementsByClassName('op')).forEach(op => {
+            if (op.getAttribute('class') != 'op op-plus') {
+                oriJson += ('{"class":"' + op.getAttribute('class') + '","innerText":"' + op.innerText + '"},');
+                isMoreThanZero = true;
+            }
+        });
+        if (isMoreThanZero)
+            oriJson = oriJson.slice(0, -1);
+        oriJson += '],';
+    });
+    oriJson = oriJson.slice(0, -1);
+    oriJson += '}';
 }
