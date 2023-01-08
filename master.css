@@ -1,13 +1,16 @@
 * {
     margin: 0;
     padding: 0;
-    text-align: center;
-    color: #1d1d1f;
 }
 
 .useful-info {
     background-color: #fff;
-    padding: 100px 0;
+    padding: 72px 0;
+}
+
+.useful-info * {
+    text-align: center;
+    color: #1d1d1f;
 }
 
 .real-title {
